@@ -1,0 +1,34 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Configuracion de Eventos</h3>
+      <hr>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="save($event)">
+    <div flex>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre del Evento</mat-label>
+        <input matInput type="text" formControlName="event_name">
+      </mat-form-field>
+    </div>
+
+    <div flex>
+      <mat-form-field appearance="fill">
+        <mat-label>Numero de paneles</mat-label>
+        <input matInput type="number" formControlName="paneles">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="40">
+      <button mat-raised-button color="primary" [disabled]="form.invalid">Siguiente</button>
+    </div>
+  </form>
+
+
+</div>
+

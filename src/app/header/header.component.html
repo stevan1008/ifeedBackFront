@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <a mat-button routerLink='/home'><span class="fa fa-home fa-lg"></span> Home</a>
+    <a mat-button><span class="fa fa-info fa-lg"></span> Preguntas </a>
+    <a mat-button routerLink="/menu"><span class="fa fa-list fa-lg"></span> Conferencias</a>
+    <a mat-button><span class="fa fa-address-card fa-lg"></span> Contact</a>
+    <a mat-button routerLink="/config"><span class="fa fa-list fa-lg"></span> Configuracion </a>
+    <span class="flex-spacer"></span>
+    <a mat-button (click)="openLoginForm()" ><span class="fa fa-sign-in fa-lg"></span> Login </a>
+  </mat-toolbar>
+
+  <div class="container jumbotron"
+      fxLayout="row"
+      fxLayout.sm="column"
+      fxLayout.xs="column"
+      fxLayoutAlign.xs="start center"
+      fxLayoutAlign.sm="start center"
+      fxLayoutAlign.gt-sm="center center"
+      fxLayoutGap="10px">
+
+    <div fxFlex fxFlex.gt-sm="50%">
+    <!-- Espacio para un texto de home acerca de un evento o etc. -->
+    </div>
+    <div fxFlex fxFlex.gt-sm="20%">
+      <!-- Espacio para imagenes -->
+    </div>
+    <div fxFlex></div>
+  </div>
