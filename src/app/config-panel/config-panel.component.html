@@ -1,0 +1,36 @@
+<br>
+
+<table mat-table [dataSource]="panels" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="numero">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let panel"> {{panel.id_panel}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre del panel </th>
+    <td mat-cell *matCellDef="let panel"> {{panel.nombre_panel}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let panel" style="text-align: right;">
+      <a>
+        <button mat-raised-button color="primary">Actualizar</button>
+      </a>
+      <a>
+        <button mat-raised-button color="warn">Eliminar</button>
+      </a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+

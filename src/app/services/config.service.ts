@@ -16,12 +16,20 @@ export class configService{
     return this.http.get(`${this.URL}/config`);
   }
 
+  getEvent(id: string){
+    return this.http.get(`${this.URL}/config/${id}`);
+  }
+
   deleteEvent(id: string){
     return this.http.delete(`${this.URL}/config/${id}`)
   }
 
   createEvent(newEvent: event){
     return this.http.post(`${this.URL}/config`, newEvent);
+  }
+
+  PostImg(body: any){
+    return this.http.post(`${this.URL}/config/upload`, body);
   }
 
   UpdateEvent(updateEvent: event){

@@ -1,0 +1,35 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Actualizar Evento</h3>
+      <hr>
+    </div>
+  </div>
+
+  <form [formGroup]="form">
+    <div flex>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre del Evento</mat-label>
+        <input matInput type="text" formControlName="event_name">
+      </mat-form-field>
+
+
+      <div flex="40">
+        <input type="file" id="file" formControlName="image" name="image">
+      </div>
+    </div>
+
+    <br>
+
+    <div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">Actualizar</button>
+    </div>
+
+  </form>
+
+
+
+</div>

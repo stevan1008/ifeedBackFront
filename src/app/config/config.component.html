@@ -4,30 +4,43 @@
 
   <div fxFlex>
     <div>
-      <h3>Configuracion de Eventos</h3>
+      <h3>Creacion de Eventos</h3>
       <hr>
     </div>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="save($event)">
+  <form [formGroup]="form" (ngSubmit)="edit ? update($event) : save($event)">
     <div flex>
       <mat-form-field appearance="fill">
         <mat-label>Nombre del Evento</mat-label>
         <input matInput type="text" formControlName="event_name">
       </mat-form-field>
-    </div>
 
-    <div flex>
+      <br>
+
       <mat-form-field appearance="fill">
-        <mat-label>Numero de paneles</mat-label>
-        <input matInput type="number" formControlName="paneles">
+        <mat-label>Numero de Paneles</mat-label>
+        <input matInput type="number" formControlName="n_paneles">
       </mat-form-field>
+
+
+      <div flex="40">
+        <input (change)="capturarFile($event)" type="file" id="file" formControlName="image" name="image">
+      </div>
+      <div flex *ngIf="miniatura">
+        <img width="200px" [src]="miniatura" alt="">
+        <button type="button" class="button" (click)="subirArchivo()">Subir Archivo</button>
+      </div>
     </div>
 
-    <div fxFlex="40">
+    <br>
+
+    <div>
       <button mat-raised-button color="primary" [disabled]="form.invalid">Siguiente</button>
     </div>
+
   </form>
+
 
 
 </div>

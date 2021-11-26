@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {  MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule} from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -14,6 +14,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule } from '@angular/material/table';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,12 +37,19 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { AuthenticationService } from './services/authentication.service';
 import { configService } from './services/config.service';
+import { PanelesService } from './services/paneles.service';
+import { ConferencistasService } from './services/conferencistas.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConfigComponent } from './config/config.component';
 import { PanelesComponent } from './paneles/paneles.component';
+import { SetUpComponent } from './set-up/set-up.component';
+import { ActualizarComponent } from './actualizar/actualizar.component';
+import { PanelDetailComponent } from './panel-detail/panel-detail.component';
+import { ConfigPanelComponent } from './config-panel/config-panel.component';
+import { SetUpPanelesComponent } from './set-up-paneles/set-up-paneles.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +65,11 @@ import { PanelesComponent } from './paneles/paneles.component';
     DashboardComponent,
     ConfigComponent,
     PanelesComponent,
+    SetUpComponent,
+    ActualizarComponent,
+    PanelDetailComponent,
+    ConfigPanelComponent,
+    SetUpPanelesComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +86,11 @@ import { PanelesComponent } from './paneles/paneles.component';
     MatSlideToggleModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     MatCheckboxModule,
+    MatBottomSheetModule,
+    MatRadioModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
@@ -79,6 +99,8 @@ import { PanelesComponent } from './paneles/paneles.component';
     AuthenticationService,
     DishService,
     configService,
+    PanelesService,
+    ConferencistasService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService
   ],
