@@ -10,6 +10,10 @@ export class Panel4Service {
 
   private URL = 'http://localhost:3000';
 
+  postPanelCuatro(panel: any){
+    return this.http.post(`${this.URL}/fourthpanel`, panel);
+  }
+
   getPanelCuatro(){
     return this.http.get(`${this.URL}/fourthpanel`);
   }

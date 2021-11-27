@@ -10,6 +10,10 @@ export class Panel2Service {
 
   private URL = 'http://localhost:3000';
 
+  PostPanelDos(panel: any){
+    return this.http.post(`${this.URL}/secondpanel`, panel);
+  }
+
   getPanelDos(){
     return this.http.get(`${this.URL}/secondpanel`);
   }

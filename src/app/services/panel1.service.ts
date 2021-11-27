@@ -10,6 +10,10 @@ export class Panel1Service {
 
   private URL = 'http://localhost:3000';
 
+  PostPaneUno(panel: any){
+    return this.http.post(`${this.URL}/firstpanel`, panel);
+  }
+
   getPanelUno(){
     return this.http.get(`${this.URL}/firstpanel`);
   }
