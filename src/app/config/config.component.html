@@ -9,23 +9,19 @@
     </div>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="edit ? update($event) : save($event)">
+  <!-- <form [formGroup]="form" (ngSubmit)="edit ? update($event) : save($event)"> -->
+  <form (submit)="save(title)">
     <div flex>
       <mat-form-field appearance="fill">
         <mat-label>Nombre del Evento</mat-label>
-        <input matInput type="text" formControlName="event_name">
+        <input matInput type="text" required #title> <!-- formControlName="event_name" -->
       </mat-form-field>
 
       <br>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Numero de Paneles</mat-label>
-        <input matInput type="number" formControlName="n_paneles">
-      </mat-form-field>
-
 
       <div flex="40">
-        <input (change)="capturarFile($event)" type="file" id="file" formControlName="image" name="image">
+        <input (change)="capturarFile($event)" type="file" id="file" name="image"> <!-- formControlName="image" -->
       </div>
       <div flex *ngIf="miniatura">
         <img width="200px" [src]="miniatura" alt="">
@@ -36,10 +32,11 @@
     <br>
 
     <div>
-      <button mat-raised-button color="primary" [disabled]="form.invalid">Siguiente</button>
+      <button mat-raised-button color="primary">Siguiente</button>
     </div>
-
   </form>
+
+<!--   </form> -->
 
 
 

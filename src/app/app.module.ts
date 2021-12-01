@@ -50,6 +50,7 @@ import { ActualizarComponent } from './actualizar/actualizar.component';
 import { PanelDetailComponent } from './panel-detail/panel-detail.component';
 import { ConfigPanelComponent } from './config-panel/config-panel.component';
 import { SetUpPanelesComponent } from './set-up-paneles/set-up-paneles.component';
+import { HomeDetailComponent } from './home-detail/home-detail.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { SetUpPanelesComponent } from './set-up-paneles/set-up-paneles.component
     PanelDetailComponent,
     ConfigPanelComponent,
     SetUpPanelesComponent,
+    HomeDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>Home</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <mat-grid-list cols="2" rowHeight="200px">
+      <mat-grid-tile *ngFor="let event of events" (click) = "onSelect(event)">
+        <img height="200px" [src]="'http://localhost:3000/uploads/' + event.image " alt={{event.event_name}}>
+        <mat-grid-tile-footer>
+          <h1>{{event.event_name | uppercase}}</h1>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <app-home-detail [event] = "selectedEvent"></app-home-detail>
+
+
+</div>

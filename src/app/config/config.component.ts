@@ -8,6 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 
+interface HtmlInputEvent extends Event {
+  target: HTMLImageElement & EventTarget;
+}
+
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
@@ -21,6 +25,11 @@ export class ConfigComponent implements OnInit {
   public miniatura: string = '';
 
   images: any = [];
+  file!: File;
+
+  event: any = {
+    event_name: '',
+  }
 
   res: any = []
 
@@ -37,7 +46,6 @@ export class ConfigComponent implements OnInit {
         this.res = res;
         this.form = this.formBuilder.group({
           event_name: [this.res[0].event_name, [Validators.required]],
-          n_paneles: [this.res[0].n_paneles, [Validators.required]],
           // image: [this.res[0].image, [Validators.required]],
         });
         this.edit = true;
@@ -48,7 +56,6 @@ export class ConfigComponent implements OnInit {
   private buildForm() {
     this.form = this.formBuilder.group({
       event_name: ['', [Validators.required]],
-      n_paneles: ['', [Validators.required]],
       image: ['', [Validators.required]]
     });
 
@@ -84,14 +91,14 @@ export class ConfigComponent implements OnInit {
   })
 
   capturarFile(event: any) {
-    const file = event.target.files[0];
-    this.extraerBase64(file).then((imagen: any) => {
+    this.file = event.target.files[0];
+    this.extraerBase64(this.file).then((imagen: any) => {
       this.miniatura = imagen.base;
       console.log(imagen)});
-    this.images = file;
+    this.images = this.file;
   }
 
-  save(event: Event) {
+/*   save(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
       const value = this.form.value;
@@ -101,9 +108,9 @@ export class ConfigComponent implements OnInit {
         this.router.navigate(['/config/settings']);
       })
     }
-  }
+  } */
 
-  update(event: Event){
+/*   update(event: Event){
     event.preventDefault();
     if (this.form.valid) {
       const value = this.form.value;
@@ -114,6 +121,7 @@ export class ConfigComponent implements OnInit {
       })
     }
   }
+ */
 
   subirArchivo(): any {
     try {
@@ -126,6 +134,14 @@ export class ConfigComponent implements OnInit {
     } catch (e) {
       console.log('ERROR', e);
     }
+  }
+
+  save(title: HTMLInputElement){
+    this.configservice.createEvent(title.value, this.file)
+    .subscribe(event => {
+      console.log("Aaaaaa: ", event);
+      this.router.navigate(['/config/settings']);
+    })
   }
 }
 

@@ -20,7 +20,7 @@ export class PanelesComponent implements OnInit {
 
   events: any = [];
 
-  displayedColumns: string[] = ['numero', 'name', 'paneles', 'imagen', 'acciones'];
+  displayedColumns: string[] = ['numero', 'name', 'imagen', 'acciones'];
   dataSource = this.events;
 
 

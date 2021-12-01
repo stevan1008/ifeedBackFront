@@ -24,12 +24,19 @@ export class configService{
     return this.http.delete(`${this.URL}/config/${id}`)
   }
 
-  createEvent(newEvent: event){
-    return this.http.post(`${this.URL}/config`, newEvent);
+  createEvent(title: string, img: File){
+    const fd = new FormData();
+    fd.append('title', title);
+    fd.append('image', img);
+    return this.http.post(`${this.URL}/config`, fd);
   }
 
   PostImg(body: any){
     return this.http.post(`${this.URL}/config/upload`, body);
+  }
+
+  getImg(id: string){
+    return this.http.get(`${this.URL}/uploads/${id}`);
   }
 
   UpdateEvent(updateEvent: event){
